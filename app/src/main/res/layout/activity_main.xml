@@ -32,5 +32,21 @@
                 tools:srcCompat="@drawable/logo"
                 android:contentDescription="@string/app_name_logo"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/main_fragment_container"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/navigation_bottom_view"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            app:labelVisibilityMode="labeled"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:menu="@menu/bottom_navigation_menu"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
