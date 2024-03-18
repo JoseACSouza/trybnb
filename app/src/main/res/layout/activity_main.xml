@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.views.activities.MainActivity">
+
     <LinearLayout
         android:id="@+id/main_container"
         android:orientation="vertical"
@@ -16,7 +17,7 @@
             android:id="@+id/navigation_bar_container"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:backgroundTint="@color/navigation">
+            android:background="@color/navigation">
 
             <ImageView
                 android:id="@+id/logo_main_activity"
@@ -29,9 +30,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/logo"
                 tools:srcCompat="@drawable/logo"
-                android:contentDescription="logo"/>
+                android:contentDescription="@string/app_name_logo"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
