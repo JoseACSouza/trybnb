@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
                         .commit()
                     true
                 }
-                R.id.profile_menu_item -> {
+                R.id.profile_menu_tem -> {
                     supportFragmentManager
                         .beginTransaction()
                         .replace(R.id.main_fragment_container, mFragmentProfile)

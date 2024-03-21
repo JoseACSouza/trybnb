@@ -6,4 +6,8 @@
     android:layout_height="match_parent"
     android:scrollbars="none"
     tools:context=".ui.views.fragments.CreateReservationFragment">
+    <TextView
+        android:text="Create Reservation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </ScrollView>
