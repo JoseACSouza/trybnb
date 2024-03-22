@@ -1,16 +1,19 @@
 package com.betrybe.trybnb.ui.views.activities
 
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.betrybe.trybnb.R
 import com.betrybe.trybnb.ui.views.fragments.CreateReservationFragment
 import com.betrybe.trybnb.ui.views.fragments.ProfileFragment
 import com.betrybe.trybnb.ui.views.fragments.ReservationFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 
 class MainActivity : AppCompatActivity() {
     private val mNavBar: BottomNavigationView by lazy {findViewById(R.id.navigation_bottom_view)}
-
     private val mFragmentProfile = ProfileFragment()
     private val mFragmentReservation = ReservationFragment()
     private val mFragmentCreateReservation = CreateReservationFragment()
