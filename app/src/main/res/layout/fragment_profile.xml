@@ -57,6 +57,13 @@
                 android:layout_height="wrap_content"
                 />
         </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/success_login"
+            android:text="Login feito com sucesso!"
+            android:visibility="gone"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
         <Button
             android:id="@+id/login_button_profile"
             android:layout_width="match_parent"
