@@ -5,56 +5,65 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import com.betrybe.trybnb.R
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [CreateReservationFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+import com.google.android.material.textfield.TextInputLayout
 class CreateReservationFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private lateinit var mNameInputLayout: TextInputLayout
+    private lateinit var mSurNameInputLayout: TextInputLayout
+    private lateinit var mCheckinInputLayout: TextInputLayout
+    private lateinit var mCheckoutInputLayout: TextInputLayout
+    private lateinit var mAdditionalNeedsInputLayout: TextInputLayout
+    private lateinit var mTotalPriceInputLayout: TextInputLayout
+    private lateinit var mSendButton: Button
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_create_reservation, container, false)
+        mNameInputLayout = view.findViewById(R.id.first_name_create_reservation)
+        mSurNameInputLayout = view.findViewById(R.id.last_name_create_reservation)
+        mCheckinInputLayout = view.findViewById(R.id.checkin_create_reservation)
+        mCheckoutInputLayout = view.findViewById(R.id.checkout_create_reservation)
+        mAdditionalNeedsInputLayout = view.findViewById(R.id.additional_needs_create_reservation)
+        mTotalPriceInputLayout = view.findViewById(R.id.total_price_create_reservation)
+        mSendButton = view.findViewById(R.id.create_reservation_button)
+
+        mSendButton.setOnClickListener {
+            validateFields()
+        }
+        return view
+    }
+
+    private fun validateFields() {
+        val validateName = mNameInputLayout.editText?.text.toString().isEmpty()
+        val validateLastName =  mSurNameInputLayout.editText?.text.toString().isEmpty()
+        val validateCheckin = mCheckinInputLayout.editText?.text.toString().isEmpty()
+        val validateCheckout =  mCheckoutInputLayout.editText?.text.toString().isEmpty()
+        val validateAdditionalNeeds = mAdditionalNeedsInputLayout.editText?.text.toString().isEmpty()
+        val validateTotalPrice =  mTotalPriceInputLayout.editText?.text.toString().isEmpty()
+
+        if(validateName){
+            mNameInputLayout.error = "O campo Nome é obrigatório"
+        }
+        if(validateLastName){
+            mSurNameInputLayout.error = "O campo Sobrenome é obrigatório"
+        }
+        if(validateCheckin){
+            mCheckinInputLayout.error = "O campo Checkin é obrigatório"
+        }
+        if(validateCheckout){
+            mCheckoutInputLayout.error = "O campo Checkout é obrigatório"
+        }
+        if(validateAdditionalNeeds){
+            mAdditionalNeedsInputLayout.error = "O campo Necessidades Adicionais é obrigatório"
+        }
+        if(validateTotalPrice){
+            mTotalPriceInputLayout.error = "O campo Preço Total é obrigatório"
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_create_reservation, container, false)
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CreateReservationFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CreateReservationFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }
